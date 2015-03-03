@@ -1,27 +1,22 @@
 package com.example.yunsuphong.japan;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
 import android.view.View;
-import android.view.Window;
 import android.widget.Toast;
 
-/**
- * Created by yunsuphong on 2/28/15.
- */
 public class JapanView extends View {
     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);	//no jagged edges
+    //Paint paint = new Paint();
 
     public JapanView(Context context) {
         //Set it up so that JapanView does more than just the View class
         super(context);
         paint.setColor(Color.RED);
         paint.setStyle(Paint.Style.FILL);	//vs. STROKE
-        paint.setShadowLayer(2f, 10f, 20f, Color.GRAY);
+        paint.setShadowLayer(3f, 10f, 20f, Color.GRAY);
     }
 
 
@@ -29,6 +24,7 @@ public class JapanView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        /*
         //decorView occupies the whole screen.
         Window window = ((Activity)getContext()).getWindow();
         View decorView = window.getDecorView();
@@ -45,6 +41,7 @@ public class JapanView extends View {
                 + "\naction bar height = " + (contentView.getTop() - frame.top);
 
         Toast.makeText(getContext(), string, Toast.LENGTH_LONG).show();
+        */
 
         int width = getWidth();
         int height = getHeight();
@@ -52,8 +49,36 @@ public class JapanView extends View {
 
         canvas.drawColor(Color.WHITE);	//background
         canvas.drawCircle(width / 2f, height / 2f, radius, paint);
-
         canvas.translate(width / 2f, height / 2f);
+
+        //The two parallel arrays must have the same length.
+        /*
+        int[] colors = {
+                Color.RED,
+                0xFFFF8000,	//There was no Color.ORANGE.
+                Color.YELLOW,
+                Color.GREEN,
+                Color.BLUE
+        };
+
+        float[] positions = {	//These are the default positions.
+                0f / (colors.length - 1),
+                1f / (colors.length - 1),
+                2f / (colors.length - 1),
+                3f / (colors.length - 1),
+                4f / (colors.length - 1)
+        };
+
+        LinearGradient linearGradient = new LinearGradient(
+                -radius, 0f,	//starting point
+                radius, 0f,	//ending point
+                colors,
+                positions,
+                Shader.TileMode.CLAMP //vs. Shader.TileMode.REPEAT, etc.
+        );
+
+        paint.setShader(linearGradient);
+        */
 
         //canvas.scale(1f, 2f);
         //canvas.drawCircle(0f, 0f, radius, paint);
