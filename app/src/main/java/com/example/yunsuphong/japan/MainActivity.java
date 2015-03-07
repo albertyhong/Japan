@@ -1,18 +1,9 @@
 package com.example.yunsuphong.japan;
 
-import android.app.ActionBar;
 import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Toast;
 
 //import android.support.v7.app.ActionBarActivity;
 
@@ -23,7 +14,9 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
+        setContentView(new TouchView(this));
 
+        /*
         WindowManager manager = (WindowManager)getSystemService(Context.WINDOW_SERVICE);
         Display display = manager.getDefaultDisplay();
 
@@ -55,6 +48,7 @@ public class MainActivity extends Activity {
         }
         JapanView japanView = new JapanView(this);
         setContentView(japanView);
+        */
     }
 
 

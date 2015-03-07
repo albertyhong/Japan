@@ -62,8 +62,9 @@ public class JapanView extends View {
         /*
         canvas.drawColor(Color.WHITE);	//background
         canvas.drawCircle(width / 2f, height / 2f, radius, paint);
-        canvas.translate(width / 2f, height / 2f);
         */
+        canvas.translate(width / 2f, height / 2f);
+
 
         //Color gradient
         int[] colors = {
@@ -94,7 +95,7 @@ public class JapanView extends View {
 
 
         //canvas.scale(1f, 2f);
-        //canvas.drawCircle(0f, 0f, radius, paint);
+        canvas.drawCircle(0f, 0f, radius, paint);
 
         //Triangle
         /*
