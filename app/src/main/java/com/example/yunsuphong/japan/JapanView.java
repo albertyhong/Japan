@@ -3,7 +3,9 @@ package com.example.yunsuphong.japan;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
+import android.graphics.Shader;
 import android.view.View;
 import android.widget.Toast;
 
@@ -16,7 +18,17 @@ public class JapanView extends View {
         super(context);
         paint.setColor(Color.RED);
         paint.setStyle(Paint.Style.FILL);	//vs. STROKE
-        paint.setShadowLayer(3f, 10f, 20f, Color.GRAY);
+
+        /*
+        //Drop shadow
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            //Draw the JapanView without using hardware acceleration,
+            //because hardware acceleration would prevent the shadow
+            //from being drawn.
+            setLayerType(LAYER_TYPE_SOFTWARE, paint);
+        }
+        paint.setShadowLayer(2f, 10f, 20f, Color.GRAY);
+        */
     }
 
 
@@ -47,12 +59,13 @@ public class JapanView extends View {
         int height = getHeight();
         float radius = .3f * Math.min(width, height);
 
+        /*
         canvas.drawColor(Color.WHITE);	//background
         canvas.drawCircle(width / 2f, height / 2f, radius, paint);
         canvas.translate(width / 2f, height / 2f);
+        */
 
-        //The two parallel arrays must have the same length.
-        /*
+        //Color gradient
         int[] colors = {
                 Color.RED,
                 0xFFFF8000,	//There was no Color.ORANGE.
@@ -78,7 +91,7 @@ public class JapanView extends View {
         );
 
         paint.setShader(linearGradient);
-        */
+
 
         //canvas.scale(1f, 2f);
         //canvas.drawCircle(0f, 0f, radius, paint);
